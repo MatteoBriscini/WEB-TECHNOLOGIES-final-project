@@ -1,0 +1,35 @@
+.copyDiv{
+    background-color: var(--secondary-color);
+    width: 230px;
+    height: 216px;
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-115px, -108px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 15;
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+}
+.actionCode{
+    background-color: var(--third-color);
+    color: white;
+    margin-right:15px;
+    margin-left:15px;
+    padding: 9px 7px 0 !important;
+    min-width: 70px !important;
+    height: 25px;
+    border-radius: 9px;
+    cursor: auto;
+}
+.actionBt{
+    background-color: var(--selected-color) !important;
+    padding: 5px 7px 7px !important;
+    margin: 6px;
+    height: 25px;
+    min-width: 60px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}

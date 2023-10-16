@@ -1,0 +1,78 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+    <param-name>dbUrl</param-name>
+    <param-value>jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC</param-value>
+  </context-param>
+  <context-param>
+    <param-name>dbUser</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  <context-param>
+    <param-name>dbPassword</param-name>
+    <param-value>Brm250101!</param-value>
+  </context-param>
+  <context-param>
+    <param-name>dbDriver</param-name>
+    <param-value>com.mysql.cj.jdbc.Driver</param-value>
+  </context-param>
+
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>it.polimi.tiw.filters.LoginFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>AdminFirstLevelFilter</filter-name>
+    <filter-class>it.polimi.tiw.filters.AdminFirstLevelFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>CopyFitler</filter-name>
+    <filter-class>it.polimi.tiw.filters.CopyFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>PasteFitler</filter-name>
+    <filter-class>it.polimi.tiw.filters.PasteFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/mainPage</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFirstLevelFilter</filter-name>
+    <url-pattern>/addCategory</url-pattern>
+    <url-pattern>/copyCat</url-pattern>
+    <url-pattern>/pasteCat</url-pattern>
+    <url-pattern>/cutCat</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>CopyFitler</filter-name>
+    <url-pattern>/copyCat</url-pattern>
+    <url-pattern>/cutCat</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>PasteFitler</filter-name>
+    <url-pattern>/pasteCat</url-pattern>
+  </filter-mapping>
+
+  <welcome-file-list>
+    <welcome-file>login</welcome-file>
+  </welcome-file-list>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error</location>
+  </error-page>
+
+</web-app>

@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="./style/login.css">
+    <title>TIW project</title>
+    <script src="js/util.js" charset="utf-8" defer></script>
+    <script src="js/signIn.js" charset="utf-8" defer></script>
+    <script src="js/main.js" charset="utf-8" defer></script>
+</head>
+<body>
+
+    <div class="formDiv">
+        <img src="style/images/loginImage.png" class="loginImage" alt="">
+        <h3>SIGN UP</h3>
+
+            <form id="signInForm" action="#">
+                <div class="mandatoryDiv">
+                    <h6>mandatory data</h6>
+                    <input class="formInput" type="text" name="user" placeholder="username"> <br>
+                    <input class="formInput" type="text" name="email" placeholder="email"> <br>
+                    <input class="formInput" type="password" name="pwd" placeholder="pwd"> <br>
+                    <input class="formInput, lastMandatory" type="password" name="pwd2" placeholder="repeat pwd"> <br>
+                </div>
+                <input class="btSign" type="button" value="submit">
+            </form>
+    </div>
+</body>
+</html>

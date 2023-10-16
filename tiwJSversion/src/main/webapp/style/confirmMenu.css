@@ -1,0 +1,55 @@
+.confirmDiv{
+    background-color: var(--secondary-color);
+    grid-area: 2 / 3 / 3 / 4;
+    width: 300px;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.confirmDiv .inner{
+    transform: translateX(75px);
+    background-color: rgba(255,255,255,0) !important;
+}
+.confirmDiv h2{
+    margin-left: 7px;
+    color: white;
+}
+.confirmDiv p{
+    margin-left: 7px;
+    color: white;
+}
+.legendDiv{
+    overflow: hidden;
+    border-radius: 12px;
+    height: fit-content;
+    background:  rgba(255,255,255,0.18) !important;
+    padding: 5px 0;
+    transform: translateY(-16px);
+    margin-bottom: -10px;
+}
+.legendElement{
+    padding-left: 9px;
+    overflow: hidden;
+    width: fit-content;
+    min-width: 300px;
+    margin: 2px;
+    border-radius: 9px;
+}
+.legendElement p {
+    margin: 0 0 0 30px !important;
+    transform: translateY(-2px);
+    color: white;
+}
+.pill{
+    height: 3px !important;
+    width: 25px !important;
+    border-radius: 9px;
+    transform: translateY(5px);
+    border: solid black 1.5px;
+}
+.legendElementContent{
+    float: left;
+    width: fit-content;
+    height: 17px;
+    padding: 3px;
+}

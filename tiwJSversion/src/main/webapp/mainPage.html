@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIW project</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/searchBar.css">
+    <link rel="stylesheet" href="style/confirmMenu.css">
+    <link rel="stylesheet" href="style/actionMenu.css">
+    <script src="js/util.js" charset="utf-8" defer></script>
+    <script src="js/copyMenu.js" charset="utf-8" defer></script>
+    <script src="js/copyMenu.js" charset="utf-8" defer></script>
+    <script src="js/confirmMenu.js" charset="utf-8" defer></script>
+    <script src="js/mainPageScript.js" charset="utf-8" defer></script>
+</head>
+<body id="body">
+<div id="mainDiv">
+
+    <div id="searchCategory" class="searchForm">
+        <input type="text" id="searchBar" class="searchBar" placeholder="search with name or ID" name="search">
+        <button  id="searchCategoryButton" value="add" class="searchButton"><i class="material-icons">search</i></button>
+    </div>
+    <div class="gridContainer" id="gridContainer">
+    <div class="list contentDiv">
+        <div class="category pasteOnTop" id="pasteOnTop" style="display: none">
+            <i class="material-icons">content_paste</i>
+        </div>
+        <br><br>
+
+        <div class="listContainer" id="listContainer"></div>
+
+    </div>
+        <div class="accountDiv contentDiv">
+            <img src="style/images/boyAccount1.png" class="accountIMG">
+            <div class="userDataDiv" id="userDataDiv">
+                <!-- user info -->
+            </div>
+            <a class="logoutBt" id="logoutBt">logout</a><br><br>
+        </div>
+
+    <div class="addForm contentDiv" id="addForm">
+        <h3>ADD NEW CATEGORY:</h3>
+        <form action="#" id="addCategoryForm">
+            <input id="fatherCode" type="text" name="fatherCode" placeholder="father code (optional)"> <br>
+            <input type="text" name="categoryName" placeholder="name"> <br>
+            <input type="button" value="add">
+        </form>
+    </div>
+    </div>
+</div>
+</body>
+
+</html>

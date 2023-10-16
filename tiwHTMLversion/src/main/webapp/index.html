@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="./style/login.css">
+  <title>TIW project</title>
+</head>
+<body>
+  <!--/*@thymesVar id="errMsg" type=""*/-->
+
+
+  <div class="formDiv">
+    <img src="style/images/loginImage.png" class="loginImage" alt="">
+    <h3>LOGIN</h3>
+    <form action="login" method="POST">
+      <input class="formInput" type="text" name="user" placeholder="username or email"> <br>
+      <input class="formInput" type="password" name="pwd" placeholder="password"> <br>
+      <div class="formLabel"><label ><input type="checkbox" name="saveLogin"> stay connected</label></div>
+      <p class="errorMSG" th:text="${errMsg}"></p>
+      <input class="bt" type="submit" value="login">
+    </form>
+    <p class="sign">don't have an account? <a href="/account" th:href="@{/account}">sign up!</a></p>
+  </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIW project</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/searchBar.css">
+</head>
+<body>
+<!--/*@thymesVar id="roleCondition" type=""*/-->
+<!--/*@thymesVar id="copy" type=""*/-->
+<!--/*@thymesVar id="paste" type=""*/-->
+<!--/*@thymesVar id="fromCode" type=""*/-->
+<!--/*@thymesVar id="code" type=""*/-->
+<!--/*@thymesVar id="padding" type=""*/-->
+
+    <form  action="searchCategory" method="POST" class="searchForm">
+        <input type="text" class="searchBar" placeholder="search with name or ID" name="search">
+        <button type="submit" name="submit" class="searchButton"><i class="material-icons">search</i></button>
+    </form>
+    <div class="gridContainer">
+    <div class="list contentDiv">
+        <div class="category pasteOnTop" th:if="${paste}"> <!--/*@thymesVar id="remove" type=""*/-->
+            <a th:href="@{/pasteCat(from=${fromCode},where=0,remove=${remove})}"><i class="material-icons">content_paste</i></a>
+        </div>
+        <br><br>
+
+        <div class="listContainer" th:each="cat : ${categories}">
+            <div class="inner"  th:style="'margin-left: ' + ${cat.padding} + 'px'">
+                <div class="category">
+                <!--/*@thymesVar id="isSelected" type=""*/-->
+                <p th:classappend="${cat.selected} ? categoryCodeSelected : categoryCode" th:text="${cat.code}"></p> </div>
+                <div class="category">  <p class="categoryName" th:text="${cat.name}"></p> </div>
+                <div class="iconContainer">
+                    <div class="category" th:if="${copy}"> <a th:href="@{/addButton(fatherCode=${cat.code})}"><i class="material-icons">add_circle</i></a></div>
+                    <div class="category" th:if="${copy}"> <a th:href="@{/copyCat(from=${cat.code}, action=copy)}"><i class="material-icons">content_copy</i></a></div>
+                    <div class="category" th:if="${copy}"> <a th:href="@{/copyCat(from=${cat.code}, action=cut)}"><i class="material-icons">content_cut</i></a></div>
+                    <div class="category" th:if="${copy}"> <a th:href="@{/copyCat(from=${cat.code}, action=delete)}"><i class="material-icons">delete_forever</i></a></div>
+
+                    <div class="category" th:if="${paste}"> <!--/*@thymesVar id="remove" type=""*/-->
+                    <a th:href="@{/pasteCat(from=${fromCode},where=${cat.code},remove=${remove})}"><i class="material-icons">content_paste</i></a> </div>
+                    <div class="category" th:if="${paste and cat.selected}"> <a th:href="@{/mainPage}"><i class="material-icons">undo</i></a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="accountDiv contentDiv">
+            <img src="style/images/boyAccount1.png"  class="accountIMG">
+            <!--/*@thymesVar id="username" type=""*/-->
+            <!--/*@thymesVar id="email" type=""*/-->
+            <!--/*@thymesVar id="userRole" type=""*/-->
+            <div class="userDataDiv">
+                <p th:text="${username}"></p>
+                <p class="data2" th:text="${email}"></p>
+                <p th:text="${userRole}"></p>
+            </div>
+            <a class="logoutBt" th:href="@{/Logout}">logout</a><br><br>
+        </div>
+
+<!--/*@thymesVar id="fatherCode" type=""*/-->
+    <div th:if="${roleCondition}" class="addForm contentDiv">
+        <h3>ADD NEW CATEGORY:</h3>
+        <form action="addCategory" method="POST">
+            <p class="errorMSG" th:text="${errMsg}"></p>
+            <input type="text" name="fatherCode" placeholder="father code (optional)" th:value="${fatherCode}"> <br>
+            <input type="text" name="name" placeholder="name"> <br>
+            <input type="submit" value="add">
+        </form>
+    </div>
+    </div>
+
+</body>
+
+</html>

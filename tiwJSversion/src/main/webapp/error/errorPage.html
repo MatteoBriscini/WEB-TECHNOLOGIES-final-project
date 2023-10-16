@@ -1,0 +1,21 @@
+<!doctype html>
+<head>
+    <link rel="stylesheet" href="./style/login.css">
+    <title>TIW project</title>
+</head>
+<body>
+
+
+<div class="formDiv">
+    <img src="style/images/error.jpeg" class="loginImage" alt="">
+    <!--/*@thymesVar id="statusCode" type=""*/-->
+    <h3 th:text="${statusCode}"></h3>
+    <!--/*@thymesVar id="errorMessage" type=""*/-->
+    <p th:text="${errorMessage}"></p>
+    <!--/*@thymesVar id="errorException" type=""*/-->
+    <p th:text="${errorException}"></p>
+</div>
+
+
+
+</body>

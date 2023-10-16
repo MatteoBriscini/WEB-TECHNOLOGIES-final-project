@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="./style/login.css">
+    <title>TIW project</title>
+</head>
+<body>
+
+    <div class="formDiv">
+        <img src="style/images/loginImage.png" class="loginImage" alt="">
+        <h3>SIGN UP</h3>
+
+            <form action="account" method="POST">
+                <div class="mandatoryDiv">
+                    <h6>mandatory data</h6>
+                    <input class="formInput" type="text" name="user" placeholder="username"> <br>
+                    <input class="formInput" type="text" name="email" placeholder="email"> <br>
+                    <input class="formInput" type="password" name="pwd" placeholder="pwd"> <br>
+                    <input class="formInput, lastMandatory" type="password" name="pwd2" placeholder="repeat pwd"> <br>
+                    <p class="errorMSGSign" th:text="${errMsg}"></p>
+                </div>
+                <input class="btSign" type="submit" value="sign in">
+            </form>
+    </div>
+</body>
+</html>

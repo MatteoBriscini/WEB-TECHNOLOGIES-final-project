@@ -1,0 +1,29 @@
+:root{
+    --main-color: rgb(148, 2, 227);
+    --secondary-color: rgb(41,128,201);
+    --third-color: rgba(148, 2, 227, 0.7);
+    --icon-background: rgb(192, 219, 242);
+    --selected-color: #B876F4;
+    --error-color: rgb(255,159,10);
+    --background: rgba(41, 128, 201, 0.5)
+}
+.searchBar{
+    background:  rgba(255,255,255,0.18) !important;
+    width: 60% !important;
+    margin-bottom: -2000px !important;
+}
+.searchForm{
+    transform: translateY(12px);
+    position: fixed;
+    top: 20px;
+    left: 20%;
+    right: 300px;
+    z-index: 7;
+}
+.searchButton{
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    transform: translate(-50px, 7px);
+}
