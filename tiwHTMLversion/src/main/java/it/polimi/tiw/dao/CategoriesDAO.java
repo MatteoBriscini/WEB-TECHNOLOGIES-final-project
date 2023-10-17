@@ -1,6 +1,7 @@
 package it.polimi.tiw.dao;
 
 import it.polimi.tiw.beams.Category;
+import it.polimi.tiw.beams.UpdateCategory;
 import it.polimi.tiw.exceptions.CategoryDBException;
 import it.polimi.tiw.utils.ConnectionsHandler;
 import it.polimi.tiw.utils.staticClasses.Query;
@@ -107,10 +108,15 @@ public class CategoriesDAO {
     public static void removeSubTree(int fatherCode, ServletContext context) throws SQLException, UnavailableException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
 
+        CategoriesDAO.triggerEnable(cnt); //enable trigger on categories delete
+
         cnt.setAutoCommit(false); // disable autocommit
         try {
             ArrayList<Integer> tree = getSubTree(fatherCode, cnt);
-            for (Integer i : tree) removeCategory(i, cnt);
+            Collections.sort(tree);
+
+            for (int i = tree.size()-1;i>=0;i--) removeCategory(tree.get(i), cnt);
+            CategoriesDAO.triggerDisable(cnt);//disable trigger on categories delete
 
             updateSubTreeAfterRemoval(fatherCode, cnt);
         }  catch (Exception e) {  //TODO gestione eccezioni
@@ -143,8 +149,14 @@ public class CategoriesDAO {
             }
 
             if(remove){
+                CategoriesDAO.triggerEnable(cnt); //enable trigger on categories delete
+
                 ArrayList<Integer> selected = getSubTree(from, cnt);
-                for(Integer i:selected) removeCategory(i,cnt);
+                Collections.sort(selected);
+
+                for (int i = selected.size()-1;i>=0;i--) removeCategory(selected.get(i), cnt);
+                CategoriesDAO.triggerDisable(cnt); //disable trigger on categories delete
+
                 updateSubTreeAfterRemoval(from, cnt);
             }
 
@@ -332,7 +344,17 @@ public class CategoriesDAO {
         ResultSet resultSet = getChildrenBiggerThanGiven(fatherCode/10, fatherCode, cnt);
         while (resultSet.next()){
             ResultSet resultSet1 = getNewIDForSubTreeAfterRemoval(resultSet.getInt(1), cnt);
-            while (resultSet1.next()) updateID(resultSet1.getInt(1), resultSet1.getInt(2), cnt);
+
+            ArrayList<UpdateCategory>results = new ArrayList<>();
+
+            while (resultSet1.next()) {
+                results.add(new UpdateCategory(resultSet1.getInt(1), resultSet1.getInt(2)));
+
+            }
+            for(int i = 0; i<results.size();i++){
+                if(i==results.size()-1)CategoriesDAO.triggerEnable(cnt);
+                updateID(results.get(i).getOldId(), results.get(i).getNewId(), cnt);
+            }
         }
     }
     /**
@@ -417,5 +439,23 @@ public class CategoriesDAO {
                 searchResults.add(category);
             }
         }
+    }
+
+    /**
+     * used to enable triggers on update and delete in the DB
+     * this type of trigger are disable as default to make multiple modification (or delete) possible
+     * in case of multiple modifications is necessary to activate the trigger before the last update query
+     * @param cnt connection with the DB
+     */
+    private static void triggerEnable(Connection cnt) throws SQLException {
+        String query = "SET @trigger_disable = 0";
+        java.sql.Statement st = cnt.createStatement();
+        st.executeUpdate(query);
+    }
+
+    private static void triggerDisable(Connection cnt) throws SQLException {
+        String query = "SET @trigger_disable = 1";
+        java.sql.Statement st = cnt.createStatement();
+        st.executeUpdate(query);
     }
 }

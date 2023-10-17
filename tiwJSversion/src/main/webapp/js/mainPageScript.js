@@ -103,6 +103,8 @@
         #categoryDiv;
         #categoryDiv2;
 
+
+
         constructor(_code, _name, _padding, _state ) {
             this.#code = _code;
             this.#name = _name;
@@ -167,7 +169,7 @@
         }
 
         #dragListenerInit(){
-            this.#innerDiv.addEventListener('dragstart', ()=>{
+            this.#innerDiv.addEventListener('dragstart', (e)=>{
                 pasteOnTop.style.display = "block";
                 this.#innerDiv.classList.add("dragInner");
                 draggedID = this.#code;
@@ -322,9 +324,6 @@
             });
 
             let addDelBt = function (action){
-
-                console.log("test")
-
                 let bt = document.createElement("i");
                 bt.setAttribute("id","addDelBt");
                 bt.className = 'material-icons';

@@ -51,9 +51,8 @@ body {
     -webkit-backdrop-filter: blur(10px);
 }
 .list{
-    overflow-y: auto;
+    overflow: scroll;
     padding-top: 25px;
-    overflow-x: auto;
     height: calc(100vh - 75px);
     width: calc(100vw - 385px);
     background: linear-gradient(135deg, var(--background), rgba(255, 255, 255, 0));
