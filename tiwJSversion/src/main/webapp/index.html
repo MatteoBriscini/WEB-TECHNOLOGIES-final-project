@@ -1,12 +1,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <link rel="stylesheet" href="style/login.css">
+  <link rel="stylesheet" href="style/loader.css">
   <title>TIW project</title>
   <script src="js/util.js" charset="utf-8" defer></script>
   <script src="js/login.js" charset="utf-8" defer></script>
 </head>
 <body>
 
+  <div class="loaderBackground" id="loaderBackground"> </div>
+  <div class="loader" id="loader">
+    <div></div>
+    <div></div>
+  </div>
 
   <div class="formDiv">
     <img src="style/images/loginImage.png" class="loginImage" alt="">

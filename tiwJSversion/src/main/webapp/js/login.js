@@ -9,9 +9,18 @@
             let formData = new FormData();
             formData.append("userID", cookie);
             HTTPRequest("POST", "loginCookies", formData,function (req){
-                if(req.status===200)window.location.replace(getContextPath() + "mainPage.html");
+                if(req.status===200){
+                    window.location.replace(getContextPath() + "mainPage.html");
+                }
             });
+        } else {
+            document.getElementById("loaderBackground").style.display = "none";
+            document.getElementById("loader").style.display = "none";
         }
+
+
+
+
 
         submitButton.addEventListener("click", function(e) {
             new LoginForm(e.target.closest("form")).sendForm("login");

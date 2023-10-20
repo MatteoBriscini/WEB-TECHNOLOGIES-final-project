@@ -1,0 +1,47 @@
+.loader {
+    display: inline-block;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-115px,-125px);
+    z-index: 200;
+    width: 200px;
+    height: 200px;
+}
+.loaderBackground{
+    position: absolute;
+    z-index: 180;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.loader div {
+    position: absolute;
+    border: 15px solid #0072ff;
+    opacity: 1;
+    border-radius: 50%;
+    background: #000;
+    animation: animate 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    filter: drop-shadow(0 0 5px #0072ff) drop-shadow(0 0 23px #0072ff);
+}
+.loader div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+@keyframes animate {
+    0% {
+        top: 100px;
+        left: 100px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
