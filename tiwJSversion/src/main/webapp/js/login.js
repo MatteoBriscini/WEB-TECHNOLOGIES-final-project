@@ -55,23 +55,11 @@ class LoginForm{
         }
 
         doPost(url,this.loginForm,function(req) { // callback of the POST HTTP request
-                if (req.readyState === XMLHttpRequest.DONE) { // response has arrived
-                    let message = req.responseText;
-                    switch (req.status) {
-                        case 200:
-                            window.location.replace(getContextPath() + "mainPage.html");
-                            break;
-                        case 400: // bad request
-                            alert(message);
-                            break;
-                        case 401: // unauthorized
-                            alert(message);
-                            break;
-                        case 500: // server error
-                            alert(message);
-                            break;
-                    }
-                }}
+            doCallBack(req,
+                ()=>{window.location.replace(getContextPath() + "mainPage.html")},
+                ()=>{alert(req.responseText)},
+                ()=>{alert(req.responseText)}
+            )}
             ,false);
     }
 }

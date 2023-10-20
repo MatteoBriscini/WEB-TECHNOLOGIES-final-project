@@ -74,23 +74,16 @@ class CopyMenu{
 
     #getNewTaxonomy(from,where,remove){
         doGet(getContextPath()+"/taxonomyModification"+"?from="+from+"&where="+where+"&remove="+remove, null, function (req) {
+
+            doCallBack(req,
+                ()=>{
+                    fillTable(JSON.parse(req.responseText), true);
+                    new ConfirmMenu(from,where,remove).displayMenu();
+                },
+                ()=>{displayError(JSON.parse(req.responseText))},
+                ()=>{alert(req.responseText)}
+            );
             if(req.readyState===4){
-                let message = req.responseText;
-                switch (req.status) {
-                    case 200:
-                        fillTable(JSON.parse(req.responseText), true);
-                        new ConfirmMenu(from,where,remove).displayMenu();
-                        break;
-                    case 400: // bad request
-                        alert(message);
-                        break;
-                    case 401: // unauthorized
-                        alert(message);
-                        break;
-                    case 500: // server error
-                        alert(message);
-                        break;
-                }
                 document.body.removeChild(document.getElementById("copyDiv"));
                 document.getElementById("mainDiv").classList.remove("blurActive");
                 document.getElementById("mainDiv").classList.remove("disablePoint");

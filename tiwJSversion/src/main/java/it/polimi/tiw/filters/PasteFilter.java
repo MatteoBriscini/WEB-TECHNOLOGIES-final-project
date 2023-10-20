@@ -22,7 +22,8 @@ public class PasteFilter  implements Filter {
             String remove= req.getParameter("remove");
 
             if  (where == null || from == null|| remove == null){
-                resp.sendRedirect(req.getServletContext().getContextPath()+ "/mainPage.html");
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                resp.getWriter().println("something has goes wrong");
                 return;
             }
 

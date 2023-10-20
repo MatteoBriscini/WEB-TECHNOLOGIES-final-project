@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import it.polimi.tiw.beams.Category;
 import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.CategoriesDAO;
+import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.UnavailableException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,7 +34,8 @@ public class ShowData extends HttpServlet {
             resp.setCharacterEncoding("UTF-8");
             resp.getWriter().println(jsonObject);
         } catch (SQLException | UnavailableException e) {
-            throw new RuntimeException(e);
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().println(ExceptionParser.parse(e));
         }
     }
 }

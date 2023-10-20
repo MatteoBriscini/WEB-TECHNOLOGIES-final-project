@@ -89,23 +89,12 @@ class ConfirmMenu{
 
     #confirmModification(from,where,remove){
         doPost(getContextPath()+"/taxonomyModification"+"?from="+from+"&where="+where+"&remove="+remove, null, function (req) {
+            doCallBack(req,
+                ()=>{fillTable(JSON.parse(req.responseText), true)},
+                ()=>{displayError(JSON.parse(req.responseText))},
+                ()=>{alert(req.responseText)}
+            );
             if(req.readyState===4) {
-                let message = req.responseText;
-                switch (req.status) {
-                    case 200:
-                        fillTable(JSON.parse(req.responseText), true);
-                        break;
-                    case 400: // bad request
-                        alert(message);
-                        break;
-                    case 401: // unauthorized
-                        alert(message);
-                        break;
-                    case 500: // server error
-                        alert(message);
-                        break;
-                }
-
                 document.getElementById("gridContainer").removeChild(document.getElementById("confirm"));
                 document.getElementById("addForm").style.display = "block";
                 document.getElementById("listContainer").classList.remove("disablePoint");

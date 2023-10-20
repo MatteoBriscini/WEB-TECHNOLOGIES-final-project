@@ -1,6 +1,7 @@
 package it.polimi.tiw.controllers;
 
 import it.polimi.tiw.dao.CategoriesDAO;
+import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,7 +21,8 @@ public class updateCategory extends HttpServlet {
         try {
             CategoriesDAO.updateCategories(code,newName,getServletContext());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().println(ExceptionParser.parse(e));
         }
     }
 }

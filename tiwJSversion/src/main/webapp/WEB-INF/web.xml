@@ -37,13 +37,15 @@
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/mainPage</url-pattern>
-    <url-pattern>/addCategory</url-pattern>
+    <url-pattern>/searchCategory</url-pattern>
   </filter-mapping>
 
   <filter-mapping>
     <filter-name>AdminFirstLevelFilter</filter-name>
     <url-pattern>/addCategory</url-pattern>
     <url-pattern>/taxonomyModification</url-pattern>
+    <url-pattern>/removeCat</url-pattern>
+    <url-pattern>/updateCatName</url-pattern>
   </filter-mapping>
 
   <filter-mapping>

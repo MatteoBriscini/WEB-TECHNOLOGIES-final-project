@@ -42,3 +42,28 @@ function parser(formData){
 function getContextPath() {
     return window.location.pathname.substring(0,window.location.pathname.indexOf("/", 2)+1);
 }
+
+function displayError(messages){
+    window.location.replace(getContextPath() + "errorPage.html?errorMSG="+messages.errorMSG+"&errorTitle="+messages.errorTitle);
+}
+
+function doCallBack (req, onSuccess, badRequestAction, unauthorizedAction){
+    if (req.readyState === XMLHttpRequest.DONE) { // response has arrived
+        switch (req.status) {
+            case 200:
+                onSuccess();
+                break;
+            case 400: // bad request
+                badRequestAction();
+                break;
+            case 401: // unauthorized
+                unauthorizedAction();
+                break;
+            case 403:
+                window.location.replace(getContextPath() + "index.html");
+                break;
+            default: // server error
+                window.location.replace(getContextPath() + "errorPage.html?errorMSG=unknown_error&errorTitle=");
+        }
+    }
+}

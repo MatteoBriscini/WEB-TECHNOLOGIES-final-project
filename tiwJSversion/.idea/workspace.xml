@@ -10,15 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/staticClasses/ExceptionParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/errorPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/error.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/AddCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/AddCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/RemoveCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/RemoveCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/SearchCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/SearchCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/ShowData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/ShowData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/updateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/updateCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/AdminFirstLevelFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/AdminFirstLevelFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/PasteFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/PasteFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/confirmMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/confirmMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/copyMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/copyMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/mainPageScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/mainPageScript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/mainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/mainPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +44,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -54,30 +69,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/matteo/Desktop/web/newProject/tiwHTMLversion",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/matteo/Desktop/web/newProject/tiwHTMLversion&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="it.polimi.tiw.exceptions" />
@@ -95,6 +110,9 @@
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/error" />
       <recent name="$PROJECT_DIR$/src/main/webapp/style" />
       <recent name="$PROJECT_DIR$/src/main/webapp/css" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="it.polimi.tiw.utils.staticClasses" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
@@ -267,6 +285,11 @@
       <workItem from="1697485687872" duration="113000" />
       <workItem from="1697485808883" duration="24000" />
       <workItem from="1697540400749" duration="8320000" />
+      <workItem from="1697551095294" duration="744000" />
+      <workItem from="1697708169539" duration="5049000" />
+      <workItem from="1697736152442" duration="2937000" />
+      <workItem from="1697813085843" duration="49000" />
+      <workItem from="1697813142847" duration="2903000" />
     </task>
     <servers />
   </component>
@@ -289,7 +312,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
-          <line>347</line>
+          <line>348</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

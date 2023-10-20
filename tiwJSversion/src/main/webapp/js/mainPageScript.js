@@ -47,11 +47,13 @@
 
     function fillInfo(clear=false){
         doGet(getContextPath()+"/mainPage", null, function (req) {
-            if(req.readyState === 4){
-                let getData =  JSON.parse(req.responseText);
-                if(!clear)fillUserInfo(getData.userData);
-                fillTable(getData.categories,clear);
-            }
+            doCallBack(req,
+                ()=>{
+                    let getData =  JSON.parse(req.responseText);
+                    if(!clear)fillUserInfo(getData.userData);
+                    fillTable(getData.categories,clear);
+                },null,null
+            );
         });
     }
 
@@ -86,10 +88,12 @@
 
     function doLogout(){
         doGet(getContextPath()+"/logout", null, function (req) {
-            if(req.readyState === 4){
-                document.cookie = "username= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-                window.location.replace(getContextPath() + "index.html");
-            }
+            doCallBack(req,
+                ()=>{
+                    document.cookie = "username= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                    window.location.replace(getContextPath() + "index.html");
+                },null,null
+            );
         });
     }
 
@@ -225,23 +229,11 @@
 
         remove(){
             doPost(getContextPath()+ "/removeCat?code="+this.#code,null,function (req){
-                if(req.readyState===4) {
-                    let message = req.responseText;
-                    switch (req.status) {
-                        case 200:
-                            fillTable(JSON.parse(req.responseText), true);
-                            break;
-                        case 400: // bad request
-                            alert(message);
-                            break;
-                        case 401: // unauthorized
-                            alert(message);
-                            break;
-                        case 500: // server error
-                            alert(message);
-                            break;
-                    }
-                }
+                doCallBack(req,
+                    ()=>{fillTable(JSON.parse(req.responseText), true)},
+                    ()=>{displayError(JSON.parse(req.responseText))},
+                    ()=>{alert(req.responseText)}
+                )
             })
         }
     }
@@ -262,24 +254,11 @@
             }
 
             doPost(url, this.addCategoryForm, function (req) {
-                if(req.readyState === 4){
-                    let message = req.responseText;
-                    switch (req.status) {
-                        case 200:
-                            fillTable(JSON.parse(req.responseText), true);
-                            break;
-                        case 400: // bad request
-                            alert(message);
-                            break;
-                        case 401: // unauthorized
-                            alert(message);
-                            break;
-                        case 500: // server error
-                            alert(message);
-                            break;
-                    }
-                }
-            }, true);
+                doCallBack(req,
+                    ()=>{fillTable(JSON.parse(req.responseText), true)},
+                    ()=>{alert(req.responseText)},
+                    ()=>{alert(req.responseText)}
+                )}, true);
         }
     }
 
@@ -297,30 +276,19 @@
             }
 
             doGet(getContextPath() +"/searchCategory?search="+ document.getElementById("searchBar").value,null,function (req) {
-                if (req.readyState === XMLHttpRequest.DONE) { // response has arrived
-                    let message = req.responseText;
-                    switch (req.status) {
-                        case 200:
-                            fillTable(JSON.parse(req.responseText), true);
+                doCallBack(req,
+                    ()=>{
+                        fillTable(JSON.parse(req.responseText), true);
 
-                            if(!document.getElementById("addDelBt"))addDelBt(()=>{
-                                    fillInfo(true);
-                                    document.getElementById("searchCategory").removeChild(document.getElementById("addDelBt"));
-                                    document.getElementById("searchBar").value="";
-                            });
-
-                            break;
-                        case 400: // bad request
-                            alert(message);
-                            break;
-                        case 401: // unauthorized
-                            alert(message);
-                            break;
-                        case 500: // server error
-                            alert(message);
-                            break;
-                    }
-                }
+                        if(!document.getElementById("addDelBt"))addDelBt(()=>{
+                            fillInfo(true);
+                            document.getElementById("searchCategory").removeChild(document.getElementById("addDelBt"));
+                            document.getElementById("searchBar").value="";
+                        });
+                    },
+                    ()=>{alert(req.responseText)},
+                    ()=>{alert(req.responseText)}
+                );
             });
 
             let addDelBt = function (action){

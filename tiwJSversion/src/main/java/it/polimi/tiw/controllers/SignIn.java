@@ -4,6 +4,7 @@ import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.UserDAO;
 import it.polimi.tiw.exceptions.StringValidatorException;
 import it.polimi.tiw.utils.StringValidator;
+import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -53,7 +54,8 @@ public class SignIn extends HttpServlet{
                 resp.getWriter().println("username or email already used");
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().println(ExceptionParser.parse(e));
         }
     }
 }

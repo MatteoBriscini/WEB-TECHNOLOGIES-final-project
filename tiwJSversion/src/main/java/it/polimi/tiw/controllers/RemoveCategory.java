@@ -5,7 +5,9 @@ import it.polimi.tiw.beams.Category;
 import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.CategoriesDAO;
 import it.polimi.tiw.dao.UserDAO;
+import it.polimi.tiw.exceptions.CategoryDBException;
 import it.polimi.tiw.exceptions.LoginException;
+import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.UnavailableException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,8 +36,9 @@ public class RemoveCategory extends HttpServlet {
                 resp.getWriter().println(new Gson().toJsonTree(categories).getAsJsonArray());
 
             }else {throw new RuntimeException("not authorized user has try to remove category");}
-        } catch (UnavailableException | LoginException | SQLException e) {
-            throw new RuntimeException(e);
+        } catch (UnavailableException | LoginException | SQLException | CategoryDBException e) {
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().println(ExceptionParser.parse(e));
         }
     }
 }

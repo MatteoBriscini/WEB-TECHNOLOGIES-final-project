@@ -355,6 +355,7 @@ public class CategoriesDAO {
                 if(i==results.size()-1)CategoriesDAO.triggerEnable(cnt);
                 updateID(results.get(i).getOldId(), results.get(i).getNewId(), cnt);
             }
+            CategoriesDAO.triggerDisable(cnt); //disable trigger on categories delete
         }
     }
     /**

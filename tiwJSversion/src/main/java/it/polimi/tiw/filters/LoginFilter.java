@@ -1,6 +1,7 @@
 package it.polimi.tiw.filters;
 
 import it.polimi.tiw.beams.User;
+import it.polimi.tiw.utils.staticClasses.Links;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,9 +14,9 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         User user = (User) req.getSession().getAttribute("user");
-
         if(user == null){
-            resp.setStatus(403); //TODO controllare che vada sempre correttamente
+            resp.setStatus(403);
+            resp.setHeader("Location", req.getServletContext().getContextPath()+ "/" + Links.index);
             return;
         }
 

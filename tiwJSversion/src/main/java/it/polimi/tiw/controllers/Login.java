@@ -2,7 +2,6 @@ package it.polimi.tiw.controllers;
 
 import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.UserDAO;
-import it.polimi.tiw.utils.staticClasses.Links;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;

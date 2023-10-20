@@ -3,6 +3,7 @@ package it.polimi.tiw.controllers;
 import com.google.gson.Gson;
 import it.polimi.tiw.beams.Category;
 import it.polimi.tiw.dao.CategoriesDAO;
+import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,9 +22,6 @@ public class SearchCategory extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String string = req.getParameter("search"); //searched values (can be the category ID or the category name)
         ArrayList<String> search = new ArrayList<>(Arrays.asList(string.split(","))); //user can search multiple parameters separating them with ,
-
-        System.out.println(string);
-
         try {
             ArrayList<Category> categories = CategoriesDAO.searchCategory(search, getServletContext());//try to search the user input in the DB
 
@@ -31,11 +29,9 @@ public class SearchCategory extends HttpServlet {
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             resp.getWriter().println(new Gson().toJsonTree(categories).getAsJsonArray());
-
-            System.out.println(new Gson().toJsonTree(categories).getAsJsonArray());
-
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().println(ExceptionParser.parse(e));
         }
     }
 }

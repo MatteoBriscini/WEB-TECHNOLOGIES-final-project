@@ -80,6 +80,7 @@ public class CategoriesDAO {
             st.setString(1, newName);
             st.setInt(2, code);
             st.executeUpdate();
+            CategoriesDAO.triggerDisable(cnt);//disable trigger on categories delete
         } catch (SQLException e) {
             cnt.rollback();
             throw new RuntimeException(e);
@@ -133,7 +134,7 @@ public class CategoriesDAO {
      * remove a category and all the ones that depend on from the just removed one
      * @param fatherCode the ID of the category the user want to remove
      */
-    public static List<Category> removeSubTree(int fatherCode, ServletContext context) throws SQLException, UnavailableException {
+    public static List<Category> removeSubTree(int fatherCode, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
 
         CategoriesDAO.triggerEnable(cnt); //enable trigger on categories delete
@@ -152,7 +153,7 @@ public class CategoriesDAO {
             return CategoriesDAO.getCategoriesSupport(cnt);
         }  catch (Exception e) {
             cnt.rollback();
-            throw new RuntimeException(e);
+            throw new CategoryDBException(e.getMessage());
         }finally {
             cnt.setAutoCommit(true); // enable autocommit because the connection is shared
             ConnectionsHandler.releaseConnection(cnt);
@@ -447,6 +448,7 @@ public class CategoriesDAO {
                 if(i==results.size()-1)CategoriesDAO.triggerEnable(cnt); //enable trigger on categories update
                 updateID(results.get(i).getOldId(), results.get(i).getNewId(), cnt);
             }
+            CategoriesDAO.triggerDisable(cnt);//disable trigger on categories delete
         }
     }
     /**
