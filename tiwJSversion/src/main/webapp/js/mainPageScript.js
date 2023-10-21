@@ -50,8 +50,15 @@
             doCallBack(req,
                 ()=>{
                     let getData =  JSON.parse(req.responseText);
+                    sessionStorage.setItem("userLevel", getData.userLevel);
                     if(!clear)fillUserInfo(getData.userData);
                     fillTable(getData.categories,clear);
+
+                    if(getData.userLevel<1){
+                        document.getElementById("addForm").style.display = "none";
+                        console.log(document.getElementById("addForm"))
+                    }
+
                 },null,null
             );
         });
@@ -110,6 +117,9 @@
 
 
         constructor(_code, _name, _padding, _state ) {
+
+            console.log(sessionStorage.getItem("userLevel"))
+
             this.#code = _code;
             this.#name = _name;
             this.#padding = _padding;
@@ -120,8 +130,8 @@
             if(this.#state==="REMOVED")this.#innerDiv.style.opacity = "0.5";
 
             this.#innerDiv.style.marginLeft = this.#padding + "px";
-            this.#innerDiv.setAttribute('draggable', true);
-            this.#innerDiv.setAttribute('id', this.code);
+            if(sessionStorage.getItem("userLevel")>=1)this.#innerDiv.setAttribute('draggable', true);
+            this.#innerDiv.setAttribute('id', this.#code);
             this.#innerDiv.classList.add("inner");
             this.#categoryDiv = document.createElement("div");
             this.#categoryDiv.classList.add("category");
@@ -163,7 +173,7 @@
         #displayIcon(iconName, iconContainer, action){
             let iconDiv = document.createElement('div');
             iconDiv.classList.add("category");
-            iconContainer.appendChild(iconDiv)
+            if(sessionStorage.getItem("userLevel")>=1)iconContainer.appendChild(iconDiv)
             let i = document.createElement('i');
             i.addEventListener("click",action);
             i.className = 'material-icons';

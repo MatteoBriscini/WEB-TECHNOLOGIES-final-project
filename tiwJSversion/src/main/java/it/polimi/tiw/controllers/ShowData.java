@@ -23,11 +23,12 @@ public class ShowData extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             JsonArray categories = new Gson().toJsonTree(CategoriesDAO.getCategories(getServletContext())).getAsJsonArray();
-            JsonObject user = new Gson().toJsonTree((User) req.getSession().getAttribute("user")).getAsJsonObject();
+            User sessionAttribute = (User) req.getSession().getAttribute("user");
+            JsonObject user = new Gson().toJsonTree(sessionAttribute).getAsJsonObject();
             JsonObject jsonObject = new JsonObject();
             jsonObject.add("userData", user);
+            jsonObject.addProperty("userLevel", sessionAttribute.getRole());
             jsonObject.add("categories", categories);
-            //System.out.println(user);
 
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.setContentType("application/json");

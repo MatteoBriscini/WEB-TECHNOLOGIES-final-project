@@ -18,10 +18,6 @@
             document.getElementById("loader").style.display = "none";
         }
 
-
-
-
-
         submitButton.addEventListener("click", function(e) {
             new LoginForm(e.target.closest("form")).sendForm("login");
         });
@@ -39,7 +35,6 @@
     function gotToSignIN(){
         window.location.replace(getContextPath() + "account.html");
     }
-
 }
 
 class LoginForm{
@@ -47,7 +42,6 @@ class LoginForm{
     constructor(_loginForm){
         this.loginForm = _loginForm;
     }
-
 
     validate(){
         let inputs = document.getElementsByTagName('input');
