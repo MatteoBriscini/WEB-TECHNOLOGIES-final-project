@@ -1,12 +1,12 @@
 package it.polimi.tiw.beams;
 
 public class Category implements Comparable<Category>{
-    private int code;
+    private long code;
     private String name;
     private int level;
     private int padding;
     private CategoryState state;
-    public Category(int code, String name){
+    public Category(long code, String name){
         this.code = code;
         this.name = name;
         state = CategoryState.BASE;
@@ -33,7 +33,7 @@ public class Category implements Comparable<Category>{
         return state;
     }
 
-    public int getCode() {
+    public long getCode() {
         return code;
     }
 
@@ -89,6 +89,6 @@ public class Category implements Comparable<Category>{
      */
     @Override
     public int compareTo(Category o) {
-        return (Integer.toString(this.getCode()).compareTo(Integer.toString(o.getCode())));
+        return (Long.toString(this.getCode()).compareTo(Long.toString(o.getCode())));
     }
 }

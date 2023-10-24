@@ -21,7 +21,7 @@ public class CategoriesDAO {
      * @param from an optional parameters needed when some of the categories are selected from the user
      * @return a list of category correctly ordered to represent the retrieved taxonomy
      */
-    public static List<Category> getCategories(int  from, ServletContext context) throws SQLException, UnavailableException {
+    public static List<Category> getCategories(long from, ServletContext context) throws SQLException, UnavailableException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
 
         cnt.setAutoCommit(false); // disable autocommit
@@ -34,10 +34,10 @@ public class CategoriesDAO {
             ResultSet result = st.executeQuery(query);
             Category category;
 
-            ArrayList<Integer> tree = getSubTree(from, cnt);
+            ArrayList<Long> tree = getSubTree(from, cnt);
 
             while(result.next()) {
-                category = new Category(result.getInt("ID"), result.getString("name"));
+                category = new Category(result.getLong("ID"), result.getString("name"));
                 if(!tree.isEmpty() && category.getCode()==tree.get(0)){
                     category.setState(CategoryState.SELECTED);
                     tree.remove(0);
@@ -66,7 +66,7 @@ public class CategoriesDAO {
         ConnectionsHandler.releaseConnection(cnt);
         return categories;
     }
-    public static void updateCategories(int code,String newName, String creator, ServletContext context) throws UnavailableException, SQLException {
+    public static void updateCategories(long code,String newName, String creator, ServletContext context) throws UnavailableException, SQLException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
         cnt.setAutoCommit(false); // disable autocommit
         String query = "UPDATE categories SET name=?, lastModifier=? WHERE ID=?";
@@ -79,7 +79,7 @@ public class CategoriesDAO {
             st = cnt.prepareStatement(query);
             st.setString(1, newName);
             st.setString(2, creator);
-            st.setInt(3, code);
+            st.setLong(3, code);
             st.executeUpdate();
             CategoriesDAO.triggerDisable(cnt);//disable trigger on categories delete
         } catch (SQLException e) {
@@ -98,7 +98,7 @@ public class CategoriesDAO {
 
         List<Category> categories = new ArrayList<>();
         while(result.next()) {
-            category = new Category(result.getInt("ID"), result.getString("name"));
+            category = new Category(result.getLong("ID"), result.getString("name"));
             category.setLevel(result.getInt(3)-1);
             categories.add(category);
         }
@@ -112,11 +112,11 @@ public class CategoriesDAO {
      * @param creator the ID of the user that create the new category
      * @throws CategoryDBException if fatherCode is a non-existing category, or if the creator hasn't the authorization to make modify on the DB, or if the father category hasn't free places
      */
-    public static List<Category> addCategory(int fatherCode, String name, String creator, ServletContext context) throws SQLException, CategoryDBException, UnavailableException {
+    public static List<Category> addCategory(long fatherCode, String name, String creator, ServletContext context) throws SQLException, CategoryDBException, UnavailableException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
 
         cnt.setAutoCommit(false); // disable autocommit
-        int newID;
+        long newID;
         try {
             newID = getNewId(fatherCode, cnt);
             addNewCategories(newID,name,creator,cnt);
@@ -135,14 +135,14 @@ public class CategoriesDAO {
      * remove a category and all the ones that depend on from the just removed one
      * @param fatherCode the ID of the category the user want to remove
      */
-    public static List<Category> removeSubTree(int fatherCode, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
+    public static List<Category> removeSubTree(long fatherCode, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
 
         CategoriesDAO.triggerEnable(cnt); //enable trigger on categories delete
 
         cnt.setAutoCommit(false); // disable autocommit
         try {
-            ArrayList<Integer> tree = getSubTree(fatherCode, cnt);
+            ArrayList<Long> tree = getSubTree(fatherCode, cnt);
             Collections.sort(tree);
 
             for (int i = tree.size()-1;i>=0;i--) removeCategory(tree.get(i), cnt);
@@ -165,10 +165,10 @@ public class CategoriesDAO {
      * @param where the category ID under which the selected tree have to be pasted
      * @param remove if this boolean is true the selected tree will be removed
      */
-    public static List<Category> getModifiedTaxonomy(int from, int where, boolean remove, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
+    public static List<Category> getModifiedTaxonomy(long from,long where, boolean remove, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
-        ArrayList<Integer> selectedSubTree = new ArrayList<>();
-        ArrayList<Integer> brotherSubTree = new ArrayList<>();
+        ArrayList<Long> selectedSubTree = new ArrayList<>();
+        ArrayList<Long> brotherSubTree = new ArrayList<>();
         List<Category> categories;
 
         cnt.setAutoCommit(false); // disable autocommit
@@ -183,7 +183,7 @@ public class CategoriesDAO {
 
             ResultSet resultSet = getChildrenBiggerThanGiven(from / 10, from, cnt);//get the selected son and all his brother bigger than him
             while (resultSet.next()) {
-                brotherSubTree.addAll(getSubTree(resultSet.getInt(1),cnt));
+                brotherSubTree.addAll(getSubTree(resultSet.getLong(1),cnt));
             }
         }
 
@@ -194,15 +194,14 @@ public class CategoriesDAO {
             Category category;
 
             categories = new ArrayList<>();
-            int i = 0;
             while(result.next()) {
-                category = new Category(result.getInt("ID"), result.getString("name"));
+                category = new Category(result.getLong("ID"), result.getString("name"));
                 category.setLevel(result.getInt(3) - 1);
 
-                if(!selectedSubTree.isEmpty() && selectedSubTree.get(0)==result.getInt("ID")) {
+                if(!selectedSubTree.isEmpty() && selectedSubTree.get(0)==result.getLong("ID")) {
                     category.setState(CategoryState.REMOVED);
                     selectedSubTree.remove(0);
-                }else if (!brotherSubTree.isEmpty() && brotherSubTree.get(0)==result.getInt("ID")){
+                }else if (!brotherSubTree.isEmpty() && brotherSubTree.get(0)==result.getLong("ID")){
                     category.setState(CategoryState.UPDATED);
                     brotherSubTree.remove(0);
                 }
@@ -230,7 +229,7 @@ public class CategoriesDAO {
      * @param remove if this boolean is true the selected tree will be removed
      * @throws CategoryDBException if where is a non-existing category, or if the creator hasn't the authorization to make modify on the DB, or if where hasn't free places
      */
-    public static List<Category> pasteSubTree(int from, int where, String creator, boolean remove, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
+    public static List<Category> pasteSubTree(long from, long where, String creator, boolean remove, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
 
         cnt.setAutoCommit(false); // disable autocommit
@@ -244,7 +243,7 @@ public class CategoriesDAO {
             if(remove){
                 CategoriesDAO.triggerEnable(cnt); //enable trigger on categories delete
 
-                ArrayList<Integer> selected = getSubTree(from, cnt);
+                ArrayList<Long> selected = getSubTree(from, cnt);
 
                 if(selected.contains(where)){
                     cnt.rollback();
@@ -280,7 +279,7 @@ public class CategoriesDAO {
      */
     public static List<Category> addNewHead(String name, String creator, ServletContext context) throws SQLException, CategoryDBException, UnavailableException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
-        int code;
+        long code;
 
         cnt.setAutoCommit(false);
         try {
@@ -313,9 +312,9 @@ public class CategoriesDAO {
         try{
             for(String s: search){
                 ResultSet result = getSearchedID(s, cnt);
-                while(result.next()) getSubTreeSearchedList(result.getInt(1),searchResults,cnt);
+                while(result.next()) getSubTreeSearchedList(result.getLong(1),searchResults,cnt);
             }
-        } catch (Exception e) {  //TODO gestione eccezioni
+        } catch (Exception e) {
             cnt.rollback();
             throw new RuntimeException(e);
         }finally {
@@ -330,10 +329,10 @@ public class CategoriesDAO {
      * remove a single category from the DB
      * @param ID the ID of the category to remove
      */
-    private static void removeCategory(int ID, Connection cnt) throws SQLException{
+    private static void removeCategory(long ID, Connection cnt) throws SQLException{
         String query = "DELETE FROM categories WHERE ID=?";
         PreparedStatement statement = cnt.prepareStatement(query);
-        statement.setInt(1,ID);
+        statement.setLong(1,ID);
         statement.executeUpdate();
     }
 
@@ -342,16 +341,16 @@ public class CategoriesDAO {
      * @param fatherCode the id on the top of the searched subtree
      * @return an ordered list of categories representing the required subtree
      */
-    private static ArrayList<Integer> getSubTree(int fatherCode, Connection cnt) throws SQLException {
+    private static ArrayList<Long> getSubTree(long fatherCode, Connection cnt) throws SQLException {
         String query = "SELECT ID FROM categories AS t\n" + Query.treeQuery + Query.categoryOrder;
 
-        ArrayList<Integer> tree = new ArrayList<>();
+        ArrayList<Long> tree = new ArrayList<>();
 
         PreparedStatement statement = cnt.prepareStatement(query);
-        for(int i=1;i<=2;i++)statement.setInt(i, fatherCode);
+        for(int i=1;i<=2;i++)statement.setLong(i, fatherCode);
         ResultSet result = statement.executeQuery();
 
-        while (result.next()) tree.add(result.getInt(1));
+        while (result.next()) tree.add(result.getLong(1));
 
         return tree;
     }
@@ -362,22 +361,22 @@ public class CategoriesDAO {
      * @return the required ID
      * @throws CategoryDBException if the given fatherCode is referred to a non-existing category, or if the father code hasn't free space
      */
-    private static int getNewId(int fatherCode, Connection cnt) throws SQLException, CategoryDBException {
+    private static long getNewId(long fatherCode, Connection cnt) throws SQLException, CategoryDBException {
         String query = "SELECT max(ID) FROM categories\n" +
                 "\twhere fatherID = ? AND fatherID IS NOT NULL";
 
         PreparedStatement st= cnt.prepareStatement(query);
-        st.setInt(1, fatherCode);
+        st.setLong(1, fatherCode);
         ResultSet result = st.executeQuery();
         cnt.commit();
 
         result.next();
 
-        if(result.getInt(1)>=(fatherCode*10+10)) throw new CategoryDBException("no free place");
+        if(result.getLong(1)>=(fatherCode*10+10)) throw new CategoryDBException("no free place");
 
-        if (result.getInt(1)==0)return (fatherCode*10)+1;
+        if (result.getLong(1)==0)return (fatherCode*10)+1;
 
-        return result.getInt(1)+1;
+        return result.getLong(1)+1;
     }
 
     /**
@@ -385,7 +384,7 @@ public class CategoriesDAO {
      * @return the required ID
      * @throws CategoryDBException if there is no more free space on the top of the taxonomy
      */
-    private static int getNewHeadID(Connection cnt) throws SQLException, CategoryDBException {
+    private static long getNewHeadID(Connection cnt) throws SQLException, CategoryDBException {
         String query = "SELECT MAX(ID)+1 FROM categories\n" +
                 "WHERE ID NOT IN (SELECT ID FROM categories\n" +
                 "\tWHERE fatherID IS NOT NULL AND fatherID > 0\n" +
@@ -394,12 +393,11 @@ public class CategoriesDAO {
         ResultSet result = st.executeQuery(query);
         result.next();
 
-        if(result.getInt(1)>9) throw new CategoryDBException("no free place");
+        if(result.getLong(1)>9) throw new CategoryDBException("no free place");
 
-        if (result.getInt(1)==0)return 1;
+        if (result.getLong(1)==0)return 1;
 
-
-        return result.getInt(1);
+        return result.getLong(1);
     }
 
     /**
@@ -409,34 +407,33 @@ public class CategoriesDAO {
      * @param givenCode the category ID of the given child
      * @return all the existing children bigger than another child
      */
-    private static ResultSet getChildrenBiggerThanGiven(int fatherCode, int givenCode, Connection cnt) throws SQLException {
+    private static ResultSet getChildrenBiggerThanGiven(long fatherCode, long givenCode, Connection cnt) throws SQLException {
         String query = "SELECT ID FROM categories WHERE fatherID = ? AND ID > ?";
         PreparedStatement st= cnt.prepareStatement(query);
-        st.setInt(1, fatherCode);
-        st.setInt(2, givenCode);
+        st.setLong(1, fatherCode);
+        st.setLong(2, givenCode);
         return st.executeQuery();
     }
-
 
     /**
      * evaluate new ID for an entire pasted subtree
      * @param from from where the subtree is copied or cut
      * @param newID the new ID for the category on the top of the subtree
      */
-    private static ArrayList<Category> getNewIdForSubTree(int from, int newID, Connection cnt) throws SQLException {
+    private static ArrayList<Category> getNewIdForSubTree(long from, long newID, Connection cnt) throws SQLException {
         String query = "SELECT CONCAT(?,substring(t.ID ,?)), name FROM categories AS t\n" + Query.treeQuery;
 
         ArrayList<Category> results = new ArrayList<>();
 
         PreparedStatement statement = cnt.prepareStatement(query);
-        statement.setInt(1, newID);
-        statement.setInt(2, String.valueOf(from).length()+1);
-        for(int i=3;i<=4;i++)statement.setInt(i, from);
+        statement.setLong(1, newID);
+        statement.setLong(2, String.valueOf(from).length()+1);
+        for(int i=3;i<=4;i++)statement.setLong(i, from);
 
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
-            Category tmp = new Category(result.getInt(1), result.getString("name"));
+            Category tmp = new Category(result.getLong(1), result.getString("name"));
             tmp.setLevel(String.valueOf(tmp.getCode()).length()-1);
             tmp.setState(CategoryState.SELECTED);
             results.add(tmp);
@@ -450,15 +447,15 @@ public class CategoriesDAO {
      * is necessary to update that ID
      * @param fatherCode the ID of the father category under witch a child has been removed
      */
-    private static void updateSubTreeAfterRemoval(int fatherCode, Connection cnt) throws SQLException {
+    private static void updateSubTreeAfterRemoval(long fatherCode, Connection cnt) throws SQLException {
         ResultSet resultSet = getChildrenBiggerThanGiven(fatherCode/10, fatherCode, cnt);
         while (resultSet.next()){
-            ResultSet resultSet1 = getNewIDForSubTreeAfterRemoval(resultSet.getInt(1), cnt);
+            ResultSet resultSet1 = getNewIDForSubTreeAfterRemoval(resultSet.getLong(1), cnt);
 
             ArrayList<UpdateCategory>results = new ArrayList<>();
 
             while (resultSet1.next()) {
-                results.add(new UpdateCategory(resultSet1.getInt(1), resultSet1.getInt(2)));
+                results.add(new UpdateCategory(resultSet1.getLong(1), resultSet1.getLong(2)));
 
             }
             for(int i = 0; i<results.size();i++){
@@ -475,12 +472,12 @@ public class CategoriesDAO {
      * @return a list with the tree already updated
      */
 
-    private static ResultSet getNewIDForSubTreeAfterRemoval(int oldFatherCode, Connection cnt) throws SQLException {
+    private static ResultSet getNewIDForSubTreeAfterRemoval(long oldFatherCode, Connection cnt) throws SQLException {
         String query = "SELECT  t.ID, t.ID-POWER(10, (LENGTH(CAST(t.ID AS nchar))-?)) FROM categories AS t, lastSon AS l\n" + Query.treeQuery;
         PreparedStatement st= cnt.prepareStatement(query);
         st.setInt(1, (String.valueOf(oldFatherCode)).length());
-        st.setInt(2, oldFatherCode);
-        st.setInt(3, oldFatherCode);
+        st.setLong(2, oldFatherCode);
+        st.setLong(3, oldFatherCode);
         return st.executeQuery();
     }
 
@@ -489,12 +486,12 @@ public class CategoriesDAO {
      * @param oldID the last ID for the specific category
      * @param newID the updated ID
      */
-    private static void updateID(int oldID, int newID, Connection cnt) throws SQLException {
+    private static void updateID(long oldID, long newID, Connection cnt) throws SQLException {
         String query = "UPDATE categories SET ID=?, fatherID=? WHERE ID=?";
         PreparedStatement st= cnt.prepareStatement(query);
-        st.setInt(1, newID);
-        st.setInt(2, newID/10);
-        st.setInt(3, oldID);
+        st.setLong(1, newID);
+        st.setLong(2, newID/10);
+        st.setLong(3, oldID);
         st.executeUpdate();
     }
 
@@ -504,11 +501,11 @@ public class CategoriesDAO {
      * @param name the category name
      * @param creator the ID of the user who create the new category
      */
-    private static void addNewCategories(int ID, String name, String creator, Connection cnt) throws SQLException {
+    private static void addNewCategories(long ID, String name, String creator, Connection cnt) throws SQLException {
         String query = "INSERT INTO categories (ID,fatherID, name, lastModifier) VALUES (?,?,?,?)";
         PreparedStatement statement = cnt.prepareStatement(query);
-        statement.setInt(1, ID);
-        statement.setInt(2, ID/10);
+        statement.setLong(1, ID);
+        statement.setLong(2, ID/10);
         statement.setString(3, name);
         statement.setString(4, creator);
         statement.executeUpdate();
@@ -533,15 +530,15 @@ public class CategoriesDAO {
      * @param fatherCode the copied or cut category
      * @param searchResults the ordered list with the taxonomy passed by reference
      */
-    private static void getSubTreeSearchedList(int fatherCode, ArrayList<Category> searchResults, Connection cnt) throws SQLException{
+    private static void getSubTreeSearchedList(long fatherCode, ArrayList<Category> searchResults, Connection cnt) throws SQLException{
         String query = "SELECT id, name, length(CAST(ID AS nchar)) FROM categories AS t\n" + Query.treeQuery;
 
         PreparedStatement statement = cnt.prepareStatement(query);
-        for(int i=1;i<=2;i++)statement.setInt(i, fatherCode);
+        for(int i=1;i<=2;i++)statement.setLong(i, fatherCode);
         ResultSet result = statement.executeQuery();
 
         while (result.next()){
-            Category category = new Category(result.getInt("id"),result.getString("name"));
+            Category category = new Category(result.getLong("id"),result.getString("name"));
             category.setLevel(result.getInt(3)-1);
             if(searchResults.contains(category) && category.getCode()==fatherCode){
 

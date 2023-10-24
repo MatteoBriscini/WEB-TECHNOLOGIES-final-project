@@ -11,13 +11,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,6 +263,7 @@
       <workItem from="1697814572298" duration="1249000" />
       <workItem from="1698055427472" duration="258000" />
       <workItem from="1698076827416" duration="110000" />
+      <workItem from="1698159481559" duration="1482000" />
     </task>
     <servers />
   </component>
@@ -274,7 +275,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
-          <line>266</line>
+          <line>267</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

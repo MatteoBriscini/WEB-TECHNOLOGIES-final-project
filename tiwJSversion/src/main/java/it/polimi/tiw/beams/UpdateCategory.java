@@ -1,19 +1,19 @@
 package it.polimi.tiw.beams;
 
 public class UpdateCategory {
-    private int oldId;
-    public int newId;
+    private long oldId;
+    public long newId;
 
-    public UpdateCategory(int oldId, int newId) {
+    public UpdateCategory(long oldId,long newId) {
         this.oldId = oldId;
         this.newId = newId;
     }
 
-    public int getNewId() {
+    public long getNewId() {
         return newId;
     }
 
-    public int getOldId() {
+    public long getOldId() {
         return oldId;
     }
 }
