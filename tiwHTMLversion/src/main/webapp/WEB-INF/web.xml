@@ -41,6 +41,7 @@
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/mainPage</url-pattern>
+    <url-pattern>/searchCategory</url-pattern>
   </filter-mapping>
 
   <filter-mapping>
@@ -49,6 +50,7 @@
     <url-pattern>/copyCat</url-pattern>
     <url-pattern>/pasteCat</url-pattern>
     <url-pattern>/cutCat</url-pattern>
+    <url-pattern>/addButton</url-pattern>
   </filter-mapping>
 
   <filter-mapping>

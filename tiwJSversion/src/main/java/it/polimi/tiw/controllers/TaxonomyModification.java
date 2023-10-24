@@ -33,7 +33,7 @@ public class TaxonomyModification extends HttpServlet {
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             resp.getWriter().println(categories);
-        } catch (SQLException e) {
+        } catch (SQLException | CategoryDBException e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().println(ExceptionParser.parse(e));
         }

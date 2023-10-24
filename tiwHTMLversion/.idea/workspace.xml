@@ -10,27 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/utils/staticClasses/ExceptionParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/errorPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/error.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/AddCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/AddCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/RemoveCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/RemoveCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/SearchCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/SearchCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/ShowData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/ShowData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/SignIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/updateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/updateCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/filters/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/filters/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/filters/PasteFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/filters/PasteFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/confirmMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/confirmMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/copyMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/copyMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/mainPageScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/mainPageScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -275,6 +261,8 @@
       <workItem from="1697707157533" duration="30000" />
       <workItem from="1697708204613" duration="2200000" />
       <workItem from="1697814572298" duration="1249000" />
+      <workItem from="1698055427472" duration="258000" />
+      <workItem from="1698076827416" duration="110000" />
     </task>
     <servers />
   </component>
@@ -286,7 +274,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
-          <line>260</line>
+          <line>266</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

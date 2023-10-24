@@ -63,7 +63,7 @@ function doCallBack (req, onSuccess, badRequestAction, unauthorizedAction){
                 window.location.replace(getContextPath() + "index.html");
                 break;
             default: // server error
-                window.location.replace(getContextPath() + "errorPage.html?errorMSG=unknown_error&errorTitle=");
+                window.location.replace(getContextPath() + "errorPage.html?errorMSG="+req.status+"&errorTitle=unknown_error");
         }
     }
 }

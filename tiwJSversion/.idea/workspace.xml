@@ -10,10 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/ShowData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/ShowData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/mainPageScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/mainPageScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/TaxonomyModification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/updateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/updateCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,6 +276,8 @@
       <workItem from="1697813085843" duration="49000" />
       <workItem from="1697813142847" duration="5625000" />
       <workItem from="1697900249333" duration="1881000" />
+      <workItem from="1698055340273" duration="3206000" />
+      <workItem from="1698076663570" duration="976000" />
     </task>
     <servers />
   </component>
@@ -293,7 +300,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
-          <line>348</line>
+          <line>365</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

@@ -66,10 +66,10 @@ public class CategoriesDAO {
         ConnectionsHandler.releaseConnection(cnt);
         return categories;
     }
-    public static void updateCategories(int code,String newName, ServletContext context) throws UnavailableException, SQLException {
+    public static void updateCategories(int code,String newName, String creator, ServletContext context) throws UnavailableException, SQLException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
         cnt.setAutoCommit(false); // disable autocommit
-        String query = "UPDATE categories SET name=? WHERE ID=?";
+        String query = "UPDATE categories SET name=?, lastModifier=? WHERE ID=?";
         PreparedStatement st= null;
 
         try {
@@ -78,7 +78,8 @@ public class CategoriesDAO {
 
             st = cnt.prepareStatement(query);
             st.setString(1, newName);
-            st.setInt(2, code);
+            st.setString(2, creator);
+            st.setInt(3, code);
             st.executeUpdate();
             CategoriesDAO.triggerDisable(cnt);//disable trigger on categories delete
         } catch (SQLException e) {
@@ -159,7 +160,67 @@ public class CategoriesDAO {
             ConnectionsHandler.releaseConnection(cnt);
         }
     }
+    /**
+     * @param from the father category ID on top of the selected tree
+     * @param where the category ID under which the selected tree have to be pasted
+     * @param remove if this boolean is true the selected tree will be removed
+     */
+    public static List<Category> getModifiedTaxonomy(int from, int where, boolean remove, ServletContext context) throws SQLException, UnavailableException, CategoryDBException {
+        Connection cnt = ConnectionsHandler.takeConnection(context);
+        ArrayList<Integer> selectedSubTree = new ArrayList<>();
+        ArrayList<Integer> brotherSubTree = new ArrayList<>();
+        List<Category> categories;
 
+        cnt.setAutoCommit(false); // disable autocommit
+
+        if(remove) {
+            selectedSubTree = getSubTree(from,cnt);
+
+            if(selectedSubTree.contains(where)){
+                cnt.rollback();
+                throw new CategoryDBException("this operation isn't possible");
+            }
+
+            ResultSet resultSet = getChildrenBiggerThanGiven(from / 10, from, cnt);//get the selected son and all his brother bigger than him
+            while (resultSet.next()) {
+                brotherSubTree.addAll(getSubTree(resultSet.getInt(1),cnt));
+            }
+        }
+
+        try {
+            String query = "SELECT id, name, length(CAST(ID AS nchar)) FROM categories " + Query.categoryOrder;
+            java.sql.Statement st = cnt.createStatement();
+            ResultSet result = st.executeQuery(query);
+            Category category;
+
+            categories = new ArrayList<>();
+            int i = 0;
+            while(result.next()) {
+                category = new Category(result.getInt("ID"), result.getString("name"));
+                category.setLevel(result.getInt(3) - 1);
+
+                if(!selectedSubTree.isEmpty() && selectedSubTree.get(0)==result.getInt("ID")) {
+                    category.setState(CategoryState.REMOVED);
+                    selectedSubTree.remove(0);
+                }else if (!brotherSubTree.isEmpty() && brotherSubTree.get(0)==result.getInt("ID")){
+                    category.setState(CategoryState.UPDATED);
+                    brotherSubTree.remove(0);
+                }
+                categories.add(category);
+            }
+
+            categories.addAll(getNewIdForSubTree(from, getNewId(where, cnt), cnt));
+            Collections.sort(categories);
+        }  catch (Exception e) {
+            cnt.rollback();
+            throw new RuntimeException(e);
+        }finally {
+            cnt.setAutoCommit(true); // enable autocommit because the connection is shared
+            ConnectionsHandler.releaseConnection(cnt);
+        }
+
+        return categories;
+    }
     /**
      * paste a selected tree under a specific category
      * the selected tree can be removed (to implement cut and paste) or not (to implement copy and paste)
@@ -184,6 +245,13 @@ public class CategoriesDAO {
                 CategoriesDAO.triggerEnable(cnt); //enable trigger on categories delete
 
                 ArrayList<Integer> selected = getSubTree(from, cnt);
+
+                if(selected.contains(where)){
+                    cnt.rollback();
+                    throw new CategoryDBException("this operation isn't possible");
+                }
+
+
                 Collections.sort(selected);
 
                 for (int i = selected.size()-1;i>=0;i--) removeCategory(selected.get(i), cnt);
@@ -257,57 +325,6 @@ public class CategoriesDAO {
 
         Collections.sort(searchResults);
         return searchResults;
-    }
-
-    public static List<Category> getModifiedTaxonomy(int from, int where, boolean remove, ServletContext context) throws SQLException, UnavailableException {
-        Connection cnt = ConnectionsHandler.takeConnection(context);
-        ArrayList<Integer> selectedSubTree = new ArrayList<>();
-        ArrayList<Integer> brotherSubTree = new ArrayList<>();
-        List<Category> categories;
-
-        cnt.setAutoCommit(false); // disable autocommit
-
-        if(remove) {
-            selectedSubTree = getSubTree(from,cnt);
-            ResultSet resultSet = getChildrenBiggerThanGiven(from / 10, from, cnt);//get the selected son and all his brother bigger than him
-            while (resultSet.next()) {
-                brotherSubTree.addAll(getSubTree(resultSet.getInt(1),cnt));
-            }
-        }
-
-        try {
-            String query = "SELECT id, name, length(CAST(ID AS nchar)) FROM categories " + Query.categoryOrder;
-            java.sql.Statement st = cnt.createStatement();
-            ResultSet result = st.executeQuery(query);
-            Category category;
-
-            categories = new ArrayList<>();
-            int i = 0;
-            while(result.next()) {
-                category = new Category(result.getInt("ID"), result.getString("name"));
-                category.setLevel(result.getInt(3) - 1);
-
-                if(!selectedSubTree.isEmpty() && selectedSubTree.get(0)==result.getInt("ID")) {
-                    category.setState(CategoryState.REMOVED);
-                    selectedSubTree.remove(0);
-                }else if (!brotherSubTree.isEmpty() && brotherSubTree.get(0)==result.getInt("ID")){
-                    category.setState(CategoryState.UPDATED);
-                    brotherSubTree.remove(0);
-                }
-                categories.add(category);
-            }
-
-            categories.addAll(getNewIdForSubTree(from, getNewId(where, cnt), cnt));
-            Collections.sort(categories);
-        }  catch (Exception e) {
-            cnt.rollback();
-            throw new RuntimeException(e);
-        }finally {
-            cnt.setAutoCommit(true); // enable autocommit because the connection is shared
-            ConnectionsHandler.releaseConnection(cnt);
-        }
-
-        return categories;
     }
     /**
      * remove a single category from the DB

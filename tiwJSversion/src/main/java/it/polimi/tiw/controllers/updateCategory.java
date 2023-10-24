@@ -1,5 +1,6 @@
 package it.polimi.tiw.controllers;
 
+import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.CategoriesDAO;
 import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
@@ -18,8 +19,10 @@ public class updateCategory extends HttpServlet {
         int code = Integer.parseInt(req.getParameter("code"));
         String newName = req.getParameter("newName");
 
+        User user = (User) req.getSession(true).getAttribute("user");
+
         try {
-            CategoriesDAO.updateCategories(code,newName,getServletContext());
+            CategoriesDAO.updateCategories(code,newName, user.getUserID(), getServletContext());
         } catch (SQLException e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().println(ExceptionParser.parse(e));

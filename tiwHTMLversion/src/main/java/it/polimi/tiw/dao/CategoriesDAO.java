@@ -152,6 +152,12 @@ public class CategoriesDAO {
                 CategoriesDAO.triggerEnable(cnt); //enable trigger on categories delete
 
                 ArrayList<Integer> selected = getSubTree(from, cnt);
+
+                if(selected.contains(where)){
+                    cnt.rollback();
+                    throw new CategoryDBException("this operation isn't possible");
+                }
+
                 Collections.sort(selected);
 
                 for (int i = selected.size()-1;i>=0;i--) removeCategory(selected.get(i), cnt);
