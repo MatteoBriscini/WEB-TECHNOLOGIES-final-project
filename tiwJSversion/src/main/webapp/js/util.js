@@ -67,3 +67,33 @@ function doCallBack (req, onSuccess, badRequestAction, unauthorizedAction){
         }
     }
 }
+
+class LoginForm{
+    #loginForm;
+    constructor(_loginForm){
+        this.loginForm = _loginForm;
+    }
+
+    validate(){
+        let inputs = document.getElementsByTagName('input');
+        for (let i = 0; i< inputs.length; ++i) {
+            if((inputs[i].type==="text" || inputs[i].type==="password")&&inputs[i].value==="")return false;
+        }
+        return true;
+    }
+
+    sendForm(url){
+        if(!this.validate()) {
+            alert("please fill all the fields");
+            return;
+        }
+
+        doPost(url,this.loginForm,function(req) { // callback of the POST HTTP request
+                doCallBack(req,
+                    ()=>{window.location.replace(getContextPath() + "mainPage.html")},
+                    ()=>{alert(req.responseText)},
+                    ()=>{alert(req.responseText)}
+                )}
+            ,false);
+    }
+}

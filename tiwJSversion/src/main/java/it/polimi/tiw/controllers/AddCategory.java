@@ -1,13 +1,10 @@
 package it.polimi.tiw.controllers;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import it.polimi.tiw.beams.Category;
 import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.CategoriesDAO;
 import it.polimi.tiw.exceptions.CategoryDBException;
-import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,7 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/addCategory")

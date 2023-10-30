@@ -10,10 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/filters/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/filters/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,6 +278,8 @@
       <workItem from="1698055340273" duration="3206000" />
       <workItem from="1698076663570" duration="976000" />
       <workItem from="1698157614785" duration="1854000" />
+      <workItem from="1698659441396" duration="332000" />
+      <workItem from="1698677788718" duration="3041000" />
     </task>
     <servers />
   </component>

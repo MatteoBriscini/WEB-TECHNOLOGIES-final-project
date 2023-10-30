@@ -11,13 +11,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/beams/UpdateCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,6 +264,9 @@
       <workItem from="1698055427472" duration="258000" />
       <workItem from="1698076827416" duration="110000" />
       <workItem from="1698159481559" duration="1482000" />
+      <workItem from="1698659420139" duration="343000" />
+      <workItem from="1698677783237" duration="300000" />
+      <workItem from="1698678095279" duration="2311000" />
     </task>
     <servers />
   </component>

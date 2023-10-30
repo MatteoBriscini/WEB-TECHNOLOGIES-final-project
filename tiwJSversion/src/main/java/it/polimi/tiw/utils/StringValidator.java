@@ -34,7 +34,6 @@ public class StringValidator {
      * @throws StringValidatorException if the username don't respect the criteria
      */
     public static void usernameCheck(String username) throws StringValidatorException {
-        System.out.println(username);
         String regexPattern = "(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$";
         if(StringValidator.patternMatches(username, regexPattern)) throw new StringValidatorException("please insert a valid username");
     }

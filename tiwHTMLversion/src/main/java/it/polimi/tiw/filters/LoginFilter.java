@@ -17,7 +17,7 @@ public class LoginFilter implements Filter {
         User user = (User) req.getSession().getAttribute("user");
 
         if(user == null){
-            resp.sendRedirect(req.getServletContext().getContextPath()+ "/index.html");
+            resp.sendRedirect(req.getServletContext().getContextPath()+ "/login");
             return;
         }
 
