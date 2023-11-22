@@ -49,7 +49,7 @@ in this document, we will focus more on the DB structure as follows.
 ### DB structure
 The DB is structured in 2 tables. <br>
 The taxonomy tree is stored via the parent-child self-relationship; a father can have multiple children, but the case of multiple inheritances is not foreseen. <br>
-The ER schema is provided below: <br>
+The ER schema is provided below: <br> <br>
 ![alt text](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIW.SchemaER.png) <br> <br>
 >**Note**: a partial configuration file for MySQL DB is provided [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/DBtest.zip).
 #### SQL tables creation code
