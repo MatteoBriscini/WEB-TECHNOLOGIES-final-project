@@ -51,7 +51,7 @@ the ER schema is provided below: <be>
 ![alt text](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIW.SchemaER.png) <br> <br>
 >**Note**: a partial configuration file for MySQL DB is provided [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/DBtest.zip).
 #### SQL tables creation code
- * User table
+ * **User table**
    ```
    User CREATE TABLE IF NOT EXIST `usersCredentials` (
  	   `userNum` int NOT NULL AUTO_INCREMENT,
@@ -67,7 +67,7 @@ the ER schema is provided below: <be>
  	  	UNIQUE KEY `userNum_UNIQUE` (`userNum`)
    )
    ```
- * Category table
+ * **Category table**
    ```
    CREATE TABLE IF NOT EXIST `categories` (
  	   `ID` bigint NOT NULL,
@@ -80,4 +80,47 @@ the ER schema is provided below: <be>
  	   CONSTRAINT `creatorKey` FOREIGN KEY (`lastModifier`) REFERENCES `usersCredentials` (`userID`)
    )
    ```
-#### Triggers
+#### SQL Triggers
+In addition to the constraints on individual attributes and those due to the presence of foreign keys, some triggers have been designed (of the AFTER INSERT, AFTER UPDATE, or AFTER DELETE type).
+ * **Not allowed user:** This trigger verifies, when adding a new category, that the user carrying out the operation has the necessary permissions
+   ```
+   DELIMITER //
+   CREATE TRIGGER add_new_category_by_not_allowed_user 
+   AFTER INSERT ON categories FOR EACH ROW BEGIN
+   IF EXISTS(
+   	SELECT * FROM categories JOIN usersCredentials ON lastModifier = userID
+   	WHERE userRole<1
+   )THEN 
+       SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'you do not have autorization for this operation';
+   END IF;
+   END//
+   DELIMITER ;
+   ```
+ * **related relationship consistency (after insert):** This trigger verifies, after insert of a new category, that all the fatherID codes are related to categories actually saved in the database
+   ```
+   DELIMITER //
+   CREATE TRIGGER add_new_categories_with_not_existing_father 
+   AFTER INSERT ON categories FOR EACH ROW BEGIN
+   IF EXISTS(
+   		SELECT * FROM categories
+   		WHERE fatherID != 0 AND fatherID NOT IN (SELECT ID FROM categories)
+   )THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'it is not possible to add a child to non existent father';
+   END IF;
+   END//
+   DELIMITER;
+   ```
+ * **related relationship consistency (after update & delete):**
+   ```
+   DELIMITER //
+   CREATE TRIGGER add_new_categories_with_not_existing_father_after_update
+   AFTER UPDATE ON categories FOR EACH ROW BEGIN
+   IF EXISTS(
+   		SELECT * FROM categories
+   		WHERE (@trigger_disable IS NULL OR @trigger_disable!=1) AND fatherID != 0 AND fatherID NOT IN (SELECT ID FROM categories)
+   )THEN 
+       SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'it is not possible to add a child to non existent father';
+   END IF;
+   END//
+   DELIMITER ;
+   ```
+   >**Note**: trigger_disable is a session variable, when multiple updates or delete occur is set to 1 to disable triggers. The triggers will be rehabilitated before the last query to verify the database status.
