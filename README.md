@@ -84,7 +84,7 @@ The ER schema is provided below: <br> <br>
    ```
 #### SQL Triggers
 In addition to the constraints on individual attributes and those due to the presence of foreign keys, some triggers have been designed (of the AFTER INSERT, AFTER UPDATE, or AFTER DELETE type).
- * **Not allowed user:** This trigger verifies, when adding a new category, that the user carrying out the operation has the necessary permissions
+ * **Not allowed user:** This trigger verifies, when adding a new category, that the user carrying out the operation has the required permissions
    ```
    DELIMITER //
    CREATE TRIGGER add_new_category_by_not_allowed_user 
@@ -98,7 +98,7 @@ In addition to the constraints on individual attributes and those due to the pre
    END//
    DELIMITER ;
    ```
- * **related relationship consistency (after insert):** This trigger verifies, after insert of a new category, that all the fatherID codes are related to categories actually saved in the database
+ * **related relationship consistency (after insert):** This trigger verifies, after insert a new category, that all the fatherID codes are related to categories actually saved in the database
    ```
    DELIMITER //
    CREATE TRIGGER add_new_categories_with_not_existing_father 
@@ -125,4 +125,4 @@ In addition to the constraints on individual attributes and those due to the pre
    END//
    DELIMITER ;
    ```
-   >**Note**: trigger_disable is a session variable, when multiple updates or delete occur is set to 1 to disable triggers. The triggers will be rehabilitated before the last query to verify the database status.
+   >**Note**: trigger_disable is a session variable, when multiple updates or deletes occur, is set to 1 to disable triggers. The triggers will be rehabilitated before the last query to verify the database consistency.
