@@ -30,25 +30,26 @@ Users can perform several operations on the taxonomy:
   * remove an existing category (and his sons)
   * copy and paste a sub-tree in a new position
   * cut and paste a sub-tree in a new position
-  * search for multiple category names or code
+  * search for multiple category names or codes
 
-### Requirements extensions for the version with JavaScript
-Some additional feature was required for this version:
+### Requirements extensions for JavaScript version
+Some additional features were required for this version:
  * After the user logs in, the entire application is created with a single page
  * Each user interaction is managed via an asynchronous invocation of the server
- * The function of copying a subtree (or cut) is achieved by drag & drop
+ * The function of copying a sub-tree (or cut) is achieved by drag & drop
  * The drop produces an update only on the client side, so the user can delete the operation or save it on the server
  * The user can click on the name of a category to change it
 
 ## Design and implementation choices
-You can find the official project document required for the course in the links below:
+The official project document, required for the course, is provided below:
  * [Italian document](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIWDocumentazione-ita.pdf). 
  * [English document](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/tiwDocumentazione-eng.pdf).
  
-Here we will focus more on the DB structure as follows.
+in this document, we will focus more on the DB structure as follows.
 ### DB structure
-The DB is structured in 2 tables, the taxonomy tree is stored via the parent-child self-relationship; a father can have multiple children, but the case of multiple inheritances is not foreseen. <be>
-the ER schema is provided below: <be>
+The DB is structured in 2 tables. <br>
+The taxonomy tree is stored via the parent-child self-relationship; a father can have multiple children, but the case of multiple inheritances is not foreseen. <br>
+The ER schema is provided below: <br>
 ![alt text](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIW.SchemaER.png) <br> <br>
 >**Note**: a partial configuration file for MySQL DB is provided [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/DBtest.zip).
 #### SQL tables creation code
