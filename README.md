@@ -11,7 +11,7 @@ the provided application has to allow the user to manage a classification taxono
 after logging in, the user accesses a Home page where a hierarchical tree of categories is shown, the categories do not depend on the user but are share among all users <br>
 <details>
 <summary>show a tree example:</summary>
- ```
+   ```
   * 9 Materiali solidi
   * 91 Materiali inerti
   * 911 Inerti da edilizia
@@ -22,7 +22,7 @@ after logging in, the user accesses a Home page where a hierarchical tree of cat
   * 912 Inerti ceramici
   * 9121 Piastrelle
   * 9122 Sanitari
- ```
+   ```
 </details><br>
 Users are allowed to several operations on the taxonomy:
   * add a new category
