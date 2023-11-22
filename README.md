@@ -41,11 +41,12 @@ Some additional feature was required for this version:
 
 ## Design and implementation choices
 You can find the official project document required for the course in the links below:
- * [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIWDocumentazione-ita.pdf). 
- * [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/tiwDocumentazione-eng.pdf).
+ * [Italian document](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIWDocumentazione-ita.pdf). 
+ * [English document](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/tiwDocumentazione-eng.pdf).
 Here we will focus more on the DB structure as follows.
 ### DB structure
-The DB is structured in 2 tables, the taxonomy is represented in the auto-relationship between father categories with his direct soons. <be>
-the ER schema is provided below:
-![alt text](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIW.SchemaER.png)
-####
+The DB is structured in 2 tables, the taxonomy tree is stored via the parent-child self-relationship; a father can have multiple children, but the case of multiple inheritances is not foreseen. <be>
+the ER schema is provided below: <be>
+![alt text](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIW.SchemaER.png) <br> <br>
+>**Note**: a partial configuration file for MySQL DB is provided [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/DBtest.zip).
+#### SQL tables creation code
