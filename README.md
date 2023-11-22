@@ -11,7 +11,7 @@ the provided application has to allow the user to manage a classification taxono
 after logging in, the user accesses a Home page where a hierarchical tree of categories is shown, the categories do not depend on the user but are share among all users <br>
 <details>
 <summary>show a tree example:</summary>
-
+ ```
   * 9 Materiali solidi
   * 91 Materiali inerti
   * 911 Inerti da edilizia
@@ -22,7 +22,7 @@ after logging in, the user accesses a Home page where a hierarchical tree of cat
   * 912 Inerti ceramici
   * 9121 Piastrelle
   * 9122 Sanitari
-
+ ```
 </details><br>
 Users are allowed to several operations on the taxonomy:
   * add a new category
@@ -32,11 +32,16 @@ Users are allowed to several operations on the taxonomy:
   * search for multiple category names or code
 
 ### Requirements extensions for the version with JavaScript
-
-
+Some additional feature was required for this version:
+ * After the user logs in, the entire application is created with a single page
+ * Each user interaction is managed via an asynchronous invocation of the server
+ * The function of copying a subtree (or cut) is achieved by drag & drop
+ * The drop produces an update only on the client side, so the user can delete the operation or save it on the server
+ * The user can click on the name of a category to change it
 
 ## Design and implementation choices
-
-//TODO AGGIUNGERE LINK AI PDF UFFICIALI
-
+You can find the official project document required for the course in the links below:
+ * [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIWDocumentazione-ita.pdf). 
+ * [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/tiwDocumentazione-eng.pdf).
+Here we will focus more on the DB structure as follows.
 ### DB structure
