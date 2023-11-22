@@ -51,3 +51,33 @@ the ER schema is provided below: <be>
 ![alt text](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIW.SchemaER.png) <br> <br>
 >**Note**: a partial configuration file for MySQL DB is provided [here](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/DBtest.zip).
 #### SQL tables creation code
+ * User table
+   ```
+   User CREATE TABLE IF NOT EXIST `usersCredentials` (
+ 	   `userNum` int NOT NULL AUTO_INCREMENT,
+ 	   `userID` varchar(45) NOT NULL,
+ 	   `username` varchar(45) NOT NULL,
+ 	   `userPWD` varchar(45) NOT NULL,
+ 	   `userRole` int NOT NULL,
+  	  `userMail` varchar(45) NOT NULL,
+ 	   PRIMARY KEY (`userID`),
+ 	  	UNIQUE KEY `userID_UNIQUE` (`userID`),
+ 	  	UNIQUE KEY `username_UNIQUE` (`username`),
+ 	  	UNIQUE KEY `userMail_UNIQUE` (`userMail`),
+ 	  	UNIQUE KEY `userNum_UNIQUE` (`userNum`)
+   )
+   ```
+ * Category table
+   ```
+   CREATE TABLE IF NOT EXIST `categories` (
+ 	   `ID` bigint NOT NULL,
+ 	   `name` varchar(45) NOT NULL,
+ 	   `fatherID`bigint DEFAULT NULL,
+ 	   `lastModifier` varchar(45) NOT NULL,
+ 	   PRIMARY KEY (`ID`),
+ 	   UNIQUE KEY `ID_UNIQUE` (`ID`),
+ 	   KEY `lastModifier_idx` (`lastModifier`),
+ 	   CONSTRAINT `creatorKey` FOREIGN KEY (`lastModifier`) REFERENCES `usersCredentials` (`userID`)
+   )
+   ```
+#### Triggers
