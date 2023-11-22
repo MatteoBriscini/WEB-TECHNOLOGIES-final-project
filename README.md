@@ -3,12 +3,12 @@
 <br>
 The course requires the students to provide two versions of the same project. <br>
 The first version was developed in Java (for Tomcat 10) as a pure HTML website. <br>
-The second version is a RIA web app developed in Java and JavaScript, some additional feature was required for this version.<br>
-application data are stored using MySQL DB, the DB structure is provided below.
+The second version is a RIA web app developed in Java and JavaScript, some additional features were required for this version.<br>
+Application data are stored using MySQL DB; the DB structure is provided below.
 
 ## Project requirements
-the provided application has to allow the user to manage a classification taxonomy. <br> 
-after logging in, the user accesses a Home page where a hierarchical tree of categories is shown, the categories do not depend on the user but are share among all users <br>
+The provided application has to allow the user to manage a classification taxonomy. <br> 
+After logging in, the user accesses a Home page where a hierarchical tree of categories is shown; the categories do not depend on the user but they are shared among all users. <br>
 <details>
 <summary>show a tree example:</summary>
 
@@ -24,7 +24,8 @@ after logging in, the user accesses a Home page where a hierarchical tree of cat
   * 9122 Sanitari
 
 </details><br>
-Users are allowed to several operations on the taxonomy:
+Users can perform several operations on the taxonomy:
+
   * add a new category
   * remove an existing category (and his sons)
   * copy and paste a sub-tree in a new position
