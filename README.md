@@ -42,7 +42,8 @@ Some additional feature was required for this version:
 ## Design and implementation choices
 You can find the official project document required for the course in the links below:
  * [Italian document](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/TIWDocumentazione-ita.pdf). 
- * [English document](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/tiwDocumentazione-eng.pdf). <br>
+ * [English document](https://github.com/MatteoBriscini/WEB-TECHNOLOGY-final-project-/blob/master/deliveries/tiwDocumentazione-eng.pdf).
+ 
 Here we will focus more on the DB structure as follows.
 ### DB structure
 The DB is structured in 2 tables, the taxonomy tree is stored via the parent-child self-relationship; a father can have multiple children, but the case of multiple inheritances is not foreseen. <be>
