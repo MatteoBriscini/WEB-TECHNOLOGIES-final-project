@@ -2,6 +2,8 @@ package it.polimi.tiw.controllers;
 
 import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.CategoriesDAO;
+import it.polimi.tiw.exceptions.StringValidatorException;
+import it.polimi.tiw.utils.StringValidator;
 import it.polimi.tiw.utils.staticClasses.ExceptionParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,10 +24,15 @@ public class updateCategory extends HttpServlet {
         User user = (User) req.getSession(true).getAttribute("user");
 
         try {
+            StringValidator.categoryNameSpecialCharactersFilter(newName);
             CategoriesDAO.updateCategories(code,newName, user.getUserID(), getServletContext());
         } catch (SQLException e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().println(ExceptionParser.parse(e));
+        } catch (StringValidatorException e){
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().println("pls insert a valid name!");
+            return;
         }
     }
 }

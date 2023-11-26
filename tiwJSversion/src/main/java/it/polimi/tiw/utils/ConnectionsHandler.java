@@ -23,10 +23,9 @@ public class ConnectionsHandler {
      */
     public synchronized static Connection takeConnection(ServletContext context) throws UnavailableException {
         Connection connection;
-
         try {
-            while (!connections.isEmpty() && connections.get(0).isValid(3600))connections.remove(0);
-            if(!connections.isEmpty()){//if the selected connection is no more active
+            while (!connections.isEmpty() && !connections.get(0).isValid(3600)) connections.remove(0);
+            if(!connections.isEmpty()){
                 connection = connections.get(0);
                 connections.remove(0);
             } else {//if there is no more active connection available

@@ -4,6 +4,8 @@ package it.polimi.tiw.controllers;
 import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.CategoriesDAO;
 import it.polimi.tiw.exceptions.CategoryDBException;
+import it.polimi.tiw.exceptions.StringValidatorException;
+import it.polimi.tiw.utils.StringValidator;
 import it.polimi.tiw.utils.staticClasses.Links;
 import it.polimi.tiw.utils.thymeleaf.PrintData;
 import it.polimi.tiw.utils.thymeleaf.ThymeleafSupport;
@@ -46,6 +48,13 @@ public class AddCategory extends HttpServlet {
         String name = req.getParameter("name"); //the chosen name fot the new category
 
         if(name.isEmpty()){ //name is not optional
+            this.errorCode(req,resp,"pls insert a valid name!");
+            return;
+        }
+
+        try {
+            StringValidator.categoryNameSpecialCharactersFilter(name);
+        } catch (StringValidatorException e){
             this.errorCode(req,resp,"pls insert a valid name!");
             return;
         }

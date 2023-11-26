@@ -38,6 +38,11 @@ public class StringValidator {
         if(StringValidator.patternMatches(username, regexPattern)) throw new StringValidatorException("please insert a valid username");
     }
 
+    public static void categoryNameSpecialCharactersFilter(String username) throws StringValidatorException {
+        String regexPattern = "(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._ ]+(?<![_.])$";
+        if(StringValidator.patternMatches(username, regexPattern)) throw new StringValidatorException("please insert a valid username");
+    }
+
     /**
      * check if the password respect all the defined criteria:
      * at least 8 characters

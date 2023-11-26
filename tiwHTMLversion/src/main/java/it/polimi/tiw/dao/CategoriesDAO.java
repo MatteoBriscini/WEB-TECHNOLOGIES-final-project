@@ -87,6 +87,8 @@ public class CategoriesDAO {
     public static void addCategory(long fatherCode, String name, String creator, ServletContext context) throws SQLException, CategoryDBException, UnavailableException {
         Connection cnt = ConnectionsHandler.takeConnection(context);
 
+        if((Long.toString(fatherCode)).contains("0")) throw new CategoryDBException("please insert a valid fatherCode");
+
         cnt.setAutoCommit(false); // disable autocommit
 
         try {
@@ -372,7 +374,7 @@ public class CategoriesDAO {
      * @return a list with the tree already updated
      */
     private static ResultSet getNewIDForSubTreeAfterRemoval(long oldFatherCode, Connection cnt) throws SQLException {
-        String query = "SELECT  t.ID, t.ID-POWER(10, (LENGTH(CAST(t.ID AS nchar))-?)) FROM categories AS t, lastSon AS l\n" + Query.treeQuery;
+        String query = "SELECT  t.ID, t.ID-POWER(10, (LENGTH(CAST(t.ID AS nchar))-?)) FROM categories AS t\n" + Query.treeQuery;
         PreparedStatement st= cnt.prepareStatement(query);
         st.setLong(1, (String.valueOf(oldFatherCode)).length());
         st.setLong(2, oldFatherCode);

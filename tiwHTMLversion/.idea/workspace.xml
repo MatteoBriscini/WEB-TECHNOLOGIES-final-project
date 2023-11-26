@@ -10,14 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/filters/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/AddCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/AddCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mainPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/AddCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/AddCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/updateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/controllers/updateCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/js/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwJSversion/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +73,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -267,6 +280,21 @@
       <workItem from="1698659420139" duration="343000" />
       <workItem from="1698677783237" duration="300000" />
       <workItem from="1698678095279" duration="2311000" />
+      <workItem from="1700063507355" duration="1213000" />
+      <workItem from="1700066249794" duration="1397000" />
+      <workItem from="1700233866785" duration="1239000" />
+      <workItem from="1700236184981" duration="859000" />
+      <workItem from="1700307945735" duration="36000" />
+      <workItem from="1700315284253" duration="4000" />
+      <workItem from="1700315498717" duration="24000" />
+      <workItem from="1700315527974" duration="1530000" />
+      <workItem from="1700318002548" duration="544000" />
+      <workItem from="1700325678987" duration="608000" />
+      <workItem from="1700327322450" duration="1008000" />
+      <workItem from="1700817494810" duration="13000" />
+      <workItem from="1700817853076" duration="951000" />
+      <workItem from="1700998551616" duration="598000" />
+      <workItem from="1700999970997" duration="165000" />
     </task>
     <servers />
   </component>
@@ -278,7 +306,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
-          <line>267</line>
+          <line>269</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

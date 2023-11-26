@@ -10,14 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff805327-2081-4b65-b44d-4e10d7c9ca80" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/filters/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/filters/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/controllers/AddCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/controllers/AddCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/webapp/WEB-INF/mainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/webapp/WEB-INF/mainPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tiwHTMLversion/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tiwHTMLversion/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/AddCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/AddCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/updateCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/controllers/updateCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/ConnectionsHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/tiw/utils/StringValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,14 +71,17 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/matteo/Desktop/web/newProject/tiwHTMLversion&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/matteo/Desktop/web/newProject/tiwJSversion/src/main/webapp&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -82,11 +95,11 @@
       <recent name="it.polimi.tiw.exceptions" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/style/images" />
       <recent name="$PROJECT_DIR$/src/main/webapp/images" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
       <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp" />
@@ -279,7 +292,16 @@
       <workItem from="1698076663570" duration="976000" />
       <workItem from="1698157614785" duration="1854000" />
       <workItem from="1698659441396" duration="332000" />
-      <workItem from="1698677788718" duration="3041000" />
+      <workItem from="1698677788718" duration="3880000" />
+      <workItem from="1700063506177" duration="1439000" />
+      <workItem from="1700235766918" duration="1270000" />
+      <workItem from="1700307986440" duration="4184000" />
+      <workItem from="1700315523685" duration="3000" />
+      <workItem from="1700317065580" duration="934000" />
+      <workItem from="1700326938014" duration="1314000" />
+      <workItem from="1700570259525" duration="24000" />
+      <workItem from="1700817491968" duration="1487000" />
+      <workItem from="1700998555227" duration="1536000" />
     </task>
     <servers />
   </component>
@@ -302,13 +324,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
-          <line>365</line>
+          <line>367</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
           <line>93</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/it/polimi/tiw/dao/CategoriesDAO.java</url>
+          <line>412</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

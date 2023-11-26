@@ -5,6 +5,8 @@ import it.polimi.tiw.beams.Category;
 import it.polimi.tiw.beams.User;
 import it.polimi.tiw.dao.CategoriesDAO;
 import it.polimi.tiw.exceptions.CategoryDBException;
+import it.polimi.tiw.exceptions.StringValidatorException;
+import it.polimi.tiw.utils.StringValidator;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -36,6 +38,15 @@ public class AddCategory extends HttpServlet {
             resp.getWriter().println("pls insert a valid name!");
             return;
         }
+
+        try {
+            StringValidator.categoryNameSpecialCharactersFilter(name);
+        } catch (StringValidatorException e){
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().println("pls insert a valid name!");
+            return;
+        }
+
 
         User user = (User) req.getSession(true).getAttribute("user");
 

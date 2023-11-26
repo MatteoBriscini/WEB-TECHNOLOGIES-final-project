@@ -25,7 +25,7 @@ public class ConnectionsHandler {
         Connection connection;
 
         try {
-            while (!connections.isEmpty() && connections.get(0).isValid(3600))connections.remove(0);
+            while (!connections.isEmpty() && !connections.get(0).isValid(3600))connections.remove(0);
             if(!connections.isEmpty()){//if the selected connection is no more active
                 connection = connections.get(0);
                 connections.remove(0);

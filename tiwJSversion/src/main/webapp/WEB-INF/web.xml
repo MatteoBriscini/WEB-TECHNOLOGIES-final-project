@@ -1,20 +1,19 @@
 <!DOCTYPE web-app PUBLIC
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
     <param-name>dbUrl</param-name>
-    <param-value>jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC</param-value>
+    <param-value>jdbc:mysql://tiw-awsdb.ctbhddnrxzsl.eu-north-1.rds.amazonaws.com:3306/tiw_webDB?serverTimezone=UTC</param-value>
   </context-param>
   <context-param>
     <param-name>dbUser</param-name>
-    <param-value>root</param-value>
+    <param-value>admin</param-value>
   </context-param>
   <context-param>
     <param-name>dbPassword</param-name>
-    <param-value>Brm250101!</param-value>
+    <param-value>BrmDbTiw2501011!</param-value>
   </context-param>
   <context-param>
     <param-name>dbDriver</param-name>
