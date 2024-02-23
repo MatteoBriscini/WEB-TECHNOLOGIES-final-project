@@ -1,4 +1,4 @@
-# WEB TECHNOLOGY (final project) 
+# WEB TECHNOLOGIES (final project) 
 ***Politecnico of Milan [2022-2023]***
 <br>
 The course requires the students to provide two versions of the same project. <br>
